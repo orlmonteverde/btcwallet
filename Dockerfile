@@ -15,12 +15,9 @@ COPY --from=builder /app/btcwallet .
 COPY --from=builder /app/dropwtxmgr .
 COPY --from=builder /app/sweepaccount .
 
-ENV USER=user
-ENV PASSWORD=53cr37
+ENV PORT=18554
 
 # Default ports.
-EXPOSE 18554
-EXPOSE 18555
-EXPOSE 18556
+EXPOSE ${PORT}
 
-CMD [ "btcwallet", "--simnet", "-u", "${USER}", "-P", "${PASSWORD}"]
+CMD [ "btcwallet" ]
